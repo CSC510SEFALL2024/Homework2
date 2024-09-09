@@ -5,6 +5,7 @@ Homework 2
 [![Linux](https://img.shields.io/badge/Platform-Linux-yellow?style=for-the-badge&logo=linux&logoColor=blue)](https://www.linux.org/)  
 [![Build](https://img.shields.io/github/actions/workflow/status/CSC510-YTS/HW1/python-app.yml?style=for-the-badge&logo=pytest&logoColor=green)](https://github.com/CSC510SEFALL2024/Homework1/actions/workflows/pylint.yml)
 ![Autopep8](https://img.shields.io/badge/autopep8-check-brightgreen)
+![Radon Complexity](https://img.shields.io/badge/radon_A--4-brightgreen)
 
 > ## Team members
 **Aryan Inguva** - ainguva@ncsu.edu <br />
