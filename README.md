@@ -9,7 +9,7 @@
 
 # Work-flow
 * Ran Autopep8, Radon and Pylint tools and conducted static analysis of the [hw2_debugging.py](https://github.com/CSC510SEFALL2024/Homework2/blob/main/hw2/hw2_debugging.py) and [rand.py](https://github.com/CSC510SEFALL2024/Homework2/blob/main/hw2/rand.py) files in that order.
-* Made necessary changes as suggested by the tools. Static analysis tools output before and after updation of the codes can be found in the [post_traces](https://github.com/CSC510SEFALL2024/Homework2/tree/main/post_traces) and [post_traces_after_update](https://github.com/CSC510SEFALL2024/Homework2/tree/main/post_traces_after_update) folders respectively
+* Made necessary changes as suggested by the tools. Static analysis tools output before and after updation of the codes can be found in the [pre_traces](https://github.com/CSC510SEFALL2024/Homework2/tree/main/pre_traces) and [post_traces](https://github.com/CSC510SEFALL2024/Homework2/tree/main/post_traces) folders respectively
 * Fixed the code and saved in the [hw2_debugging_fixed.py](https://github.com/CSC510SEFALL2024/Homework2/blob/main/hw2_debugging_fixed.py) and [rand_fixed.py](https://github.com/CSC510SEFALL2024/Homework2/blob/main/rand_fixed.py) files respectively
 
 > ## Team members
