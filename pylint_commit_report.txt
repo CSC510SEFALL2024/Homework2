@@ -1,6 +1,4 @@
-************* Module hw2_debugging_fixed
-hw2_debugging_fixed.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
-------------------------------------------------------------------
-Your code has been rated at 9.67/10 (previous run: 9.67/10, +0.00)
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 9.67/10, +0.33)
 
