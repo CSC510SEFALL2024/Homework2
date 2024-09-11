@@ -1,34 +1,62 @@
+"""
+This module implements the merge sort algorithm with a helper function
+to recombine sorted sub-arrays.
+"""
+
 import rand
 
 
-def mergeSort(arr):
-    if (len(arr) == 1):
-        return arr
+def merge_sort(input_arr):
+    """
+    Sorts an array using the merge sort algorithm.
 
-    half = len(arr)//2
+    Args:
+        input_arr (list): The array to be sorted.
 
-    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+    Returns:
+        list: Sorted array.
+    """
+    if len(input_arr) <= 1:  # Removed unnecessary parentheses
+        return input_arr
+
+    half = len(input_arr) // 2
+
+    return recombine(merge_sort(
+        input_arr[:half]), merge_sort(input_arr[half:]))
 
 
-def recombine(leftArr, rightArr):
-    leftIndex = 0
-    rightIndex = 0
-    mergeArr = [None] * (len(leftArr) + len(rightArr))
-    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
-        if leftArr[leftIndex] < rightArr[rightIndex]:
-            rightIndex += 1
-            mergeArr.append(leftArr[leftIndex])
+def recombine(left_arr, right_arr):
+    """
+    Combines two sorted arrays into a single sorted array.
+
+    Args:
+        left_arr (list): The left half of the array.
+        right_arr (list): The right half of the array.
+
+    Returns:
+        list: A sorted array combining left_arr and right_arr.
+    """
+    left_index = 0
+    right_index = 0
+    merged_arr = []  # Use an empty list to avoid fixed-size initialization
+
+    while left_index < len(left_arr) and right_index < len(right_arr):
+        if left_arr[left_index] < right_arr[right_index]:
+            merged_arr.append(left_arr[left_index])
+            left_index += 1
         else:
-            leftIndex += 1
-            mergeArr.append(rightArr[rightIndex])
+            merged_arr.append(right_arr[right_index])
+            right_index += 1
 
-    mergeArr.extend(rightArr[rightIndex:])
-    mergeArr.extend(leftArr[leftIndex:])
+    # Extend remaining elements of both arrays
+    merged_arr.extend(right_arr[right_index:])
+    merged_arr.extend(left_arr[left_index:])
 
-    return mergeArr
+    return merged_arr
 
 
+# Generate a random array of size 20 and sort it
 arr = rand.random_array([None] * 20)
-arr_out = mergeSort(arr)
+sorted_arr = merge_sort(arr)
 
-print(arr_out)
+print(sorted_arr)
