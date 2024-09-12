@@ -12,6 +12,6 @@ def test_merge_sort_2():
     assert merge_sort(input_arr) == output_expected
 
 def test_merge_sort_3():
-    input_arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, -1, -3, 0, -100]
-    outputexpected = [-100, -3, -1, 0, 1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
+    input_arr = [3, 0, 4, 1, 5, 9, 2, 6, 5, 3, 5, -1, -3, 0, -100]
+    outputexpected = [-100, -3, -1, 0, 0, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
     assert merge_sort(input_arr) == outputexpected
