@@ -1,0 +1,60 @@
+name: Python Code Quality Checks
+
+on:
+  push:
+    # This triggers the workflow on every push to any branch.
+    branches:
+      - '**'
+
+jobs:
+  lint:
+    name: Run pylint, autopep8, and radon on changed Python files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Specify the Python version you're using
+
+      - name: Install dependencies
+        run: |
+          pip install pylint autopep8 radon
+
+      - name: Find changed Python files
+        id: find_changed_files
+        run: |
+          # Get the list of added or modified Python files in the commit
+          git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }} | grep '\.py$' > changed_files.txt
+
+      - name: Show changed files
+        run: |
+          echo "Changed Python files:"
+          cat changed_files.txt
+
+      - name: Run pylint on changed files
+        run: |
+          if [ -s changed_files.txt ]; then
+            xargs pylint < changed_files.txt
+          else
+            echo "No Python files were modified."
+          fi
+
+      - name: Autopep8 formatting on changed files
+        run: |
+          if [ -s changed_files.txt ]; then
+            xargs autopep8 --in-place < changed_files.txt
+          else
+            echo "No Python files were modified."
+          fi
+
+      - name: Run radon for complexity analysis on changed files
+        run: |
+          if [ -s changed_files.txt ]; then
+            xargs radon cc < changed_files.txt
+          else
+            echo "No Python files were modified."
+          fi
