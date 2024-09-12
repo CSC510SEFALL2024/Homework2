@@ -24,12 +24,13 @@ jobs:
         run: |
           pip install pylint autopep8 radon
 
+     
       - name: Find changed Python files
         id: find_changed_files
         run: |
-          # Get the list of added or modified Python files in the commit
-          git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }} | grep '\.py$' > changed_files.txt
-
+          #Get difference between each file
+          git diff --name-only --diff-filter=AM ${GITHUB_EVENT_BEFORE:-HEAD^} ${{ github.sha }} | grep '\.py$' > changed_files.txt
+        
       - name: Show changed files
         run: |
           echo "Changed Python files:"
