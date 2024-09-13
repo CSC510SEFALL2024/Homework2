@@ -16,7 +16,7 @@ def merge_sort(input_arr):
     Returns:
         list: Sorted array.
     """
-    if len(input_arr) <= 1:  # Removed unnecessary parentheses
+    if len(input_arr) <= 1:
         return input_arr
 
     half = len(input_arr) // 2
