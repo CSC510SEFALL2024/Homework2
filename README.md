@@ -2,7 +2,6 @@
 [![Python](https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python&logoColor=blue)](https://docs.python.org/3.13/whatsnew/3.13.html)  
 [![MIT](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)](https://opensource.org/license/mit)  
 [![Linux](https://img.shields.io/badge/Platform-Linux-yellow?style=for-the-badge&logo=linux&logoColor=blue)](https://www.linux.org/)  
-[![Build](https://img.shields.io/github/actions/workflow/status/CSC510-YTS/HW1/python-app.yml?style=for-the-badge&logo=pytest&logoColor=green)](https://github.com/CSC510SEFALL2024/Homework1/actions/workflows/pylint.yml)  
 ![Autopep8](https://img.shields.io/badge/autopep8-check-brightgreen?style=for-the-badge&logoColor=green)    
 ![Radon Complexity](https://img.shields.io/badge/radon-A--4-brightgreen?style=for-the-badge&logoColor=green)  
 ![Pylint Score](https://img.shields.io/badge/pylint-10%2F10-brightgreen?style=for-the-badge&logoColor=green)
