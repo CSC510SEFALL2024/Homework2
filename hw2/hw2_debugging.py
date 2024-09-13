@@ -1,6 +1,7 @@
 """
 This module implements the merge sort algorithm with a helper function
 to recombine sorted sub-arrays.
+
 """
 
 import rand

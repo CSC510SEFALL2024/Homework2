@@ -1,0 +1,50 @@
+name: Python Code Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Run pylint, autopep8, and radon on all Python files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  
+
+      - name: Install dependencies
+        run: |
+          pip install pylint autopep8 radon
+
+      # Find all Python files and run pylint, autopep8, and radon on them
+      - name: List all Python files
+        id: list_python_files
+        run: |
+          find . -name "*.py" > all_python_files.txt
+          echo "All Python files in the repo:"
+          cat all_python_files.txt
+
+      - name: Run pylint on all Python files
+        run: |
+          xargs pylint < all_python_files.txt
+
+      - name: Autopep8 formatting on all Python files
+        run: |
+          xargs autopep8 --in-place < all_python_files.txt
+          git diff
+          git add .
+          git commit -m "Apply autopep8 formatting" || echo "No formatting changes made."
+
+      - name: Run radon for complexity analysis on all Python files
+        run: |
+          xargs radon cc < all_python_files.txt
